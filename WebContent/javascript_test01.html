@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>고정된 문자열을 흘려가기 효과 주기(즉,동적인 웹 문서 만들기)</title>
+<title>고정된 문자열을 흘러가기 효과 주기(즉,동적인 웹 문서 만들기)</title>
 <style>
 	input { background-color:yellow; }
 </style>
@@ -24,6 +24,7 @@
 		document.myForm.trend.value = msg.substring(0,60)
 		msg = msg.substring(1,msg.length) + msg.substring(0,1)
 		// 재귀적 호출 => 함수 안에서 자기 자신 함수를 호출하는 것
+		// 두 번째 인자값은 밀리세컨즈(ms) 즉, 1/1000초 단위이다. => 100/1000 => 0.1초 후에 => '지연시간' 개념
 		timevalue = setTimeout("scrollTrend()", 100)
 	}
 	function stopTrend() {
