@@ -18,19 +18,22 @@
 	
 	/*
 		2. 처음에는 공백 60개 보여주고
-		3. 맨 앞에 있는 공백을 문자열 맨 뒤에 가져다 붙인다. => 함수를 만들어 놓고
+		3. 맨 앞에 있는 공백을 문자열 맨 뒤에 가져다 붙인다. => 함수를 만들어 놓기
 	*/
 	function scrollTrend() {
 		document.myForm.trend.value = msg.substring(0,60)
 		msg = msg.substring(1,msg.length) + msg.substring(0,1)
 		// 재귀적 호출 => 함수 안에서 자기 자신 함수를 호출하는 것
-		// 두 번째 인자값은 밀리세컨즈(ms) 즉, 1/1000초 단위이다. => 100/1000 => 0.1초 후에 => '지연시간' 개념
+		// 두 번째 인자값은 밀리세컨즈(ms) 즉, 1/1000초 단위이다.
+		// => 100/1000 => 0.1초(지연시간) 후에 실행.
+		// scrollTrend() 함수를 바로 실행하는 것이 아니라 지연시간(0.1초) 후에 실행시켜라!!
 		timevalue = setTimeout("scrollTrend()", 100)
 	}
 	function stopTrend() {
+		// clearTimeout() 함수는 setTimeout() 함수가 시작하면서 반환한 timevalue를
+		// 이용하여 예약된 타이머를 취소할 수 있는 기능을 가지고 있다.  
 		clearTimeout(timevalue)
 	}
-	
 </script>
 </head>
 <body onload="scrollTrend()">
